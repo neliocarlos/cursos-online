@@ -9,7 +9,7 @@ export default function CardCurso({ id, nomeCurso, areaCurso, cargaHorario, desc
                 <div className='text-md text-gray-500'>{areaCurso}</div>
             </div>
             <div className='flex flex-col h-60 justify-between bg-amber-50 text-slate-900 p-4 rounded-b-xl gap-4 shadow'>
-                <div className='text-md'>{descricao}</div>
+                <div className='text-md line-clamp-5'>{descricao}</div>
                 <div className='flex justify-between items-center px-6 w-full'>
                     <div className='text-md font-semibold'>Carga Horária: {cargaHorario}</div>
                     <div className='flex gap-4 text-sm'>
