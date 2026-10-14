@@ -1,7 +1,9 @@
+import { Categoria } from "@/mocks/categorias";
+
 type CardCursoProps = {
     id: number;
     nomeCurso: string;
-    areaCurso: string;
+    areaCurso: Categoria;
     cargaHorario: string;
     descricao: string;
 }
