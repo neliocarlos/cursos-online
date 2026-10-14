@@ -3,13 +3,17 @@
 
 import { enviarInscricao } from "@/services/inscricao";
 import { z } from "zod";
-import { InscricaoEstado } from "./types/inscricao-estado";
+import { InscricaoEstado } from "../../../types/inscricao-estado";
+
 
 const inscricaoSchema = z.object({
     cursoId: z.coerce.number().int().positive(),
     nome: z.string().trim().min(3, "Informe o nome completo"),
     email: z.email("E-mail inválido"),
-    telefone: z.string().trim().min(10, "Telefone inválido"),
+    telefone: z
+        .string()
+        .transform((v) => v.replace(/\D/g, ""))
+        .pipe(z.string().min(10, "Telefone inválido").max(11, "Telefone inválido")),
     cidade: z.string().trim().min(2, "Informe a cidade"),
 });
 

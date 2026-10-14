@@ -1,9 +1,10 @@
 // app/cursos/[id]/form-inscricao.tsx
 "use client";
 
-import { useActionState } from "react";
-import { InscricaoEstado } from "../types/inscricao-estado";
+import { useActionState, useState, useEffect } from "react";
+import { InscricaoEstado } from "../../../../types/inscricao-estado";
 import { cadastrarInscricao } from "../actions";
+import { phoneMask } from "@/helpers/phoneMask";
 
 const estadoInicial: InscricaoEstado = { status: "idle" };
 
@@ -17,6 +18,11 @@ export function FormInscricao({ cursoId }: { cursoId: number }) {
     cadastrarInscricao,
     estadoInicial,
   );
+  const [phone, setPhone] = useState("");
+
+  useEffect(() => {
+    if (state.status === "success") setPhone("");
+  }, [state.status]);
 
   return (
     <form action={formAction} className="flex flex-col w-full gap-4 p-4">
@@ -30,6 +36,7 @@ export function FormInscricao({ cursoId }: { cursoId: number }) {
           type="text"
           autoComplete="name"
           required
+          placeholder="Digite seu nome completo"
           defaultValue={state.values?.nome}
           className="border border-slate-300 rounded-md p-2"
         />
@@ -44,6 +51,7 @@ export function FormInscricao({ cursoId }: { cursoId: number }) {
           type="email"
           autoComplete="email"
           required
+          placeholder="Digite seu e-mail"
           defaultValue={state.values?.email}
           className="border border-slate-300 rounded-md p-2"
         />
@@ -59,7 +67,11 @@ export function FormInscricao({ cursoId }: { cursoId: number }) {
             type="tel"
             autoComplete="tel"
             required
+            placeholder="(00) 00000-0000"
+            maxLength={15}
+            value={phone}
             defaultValue={state.values?.telefone}
+            onChange={(e) => setPhone(phoneMask(e.target.value))}
             className="border border-slate-300 rounded-md p-2"
           />
           <FieldError messages={state.errors?.telefone} />
@@ -73,6 +85,7 @@ export function FormInscricao({ cursoId }: { cursoId: number }) {
             type="text"
             autoComplete="address-level2"
             required
+            placeholder="Digite sua cidade"
             defaultValue={state.values?.cidade}
             className="border border-slate-300 rounded-md p-2"
           />
@@ -80,16 +93,16 @@ export function FormInscricao({ cursoId }: { cursoId: number }) {
         </div>
       </div>
 
-      {state.message && (
-        <p
-          role="status"
-          className={state.status === "success" ? "text-green-700" : "text-red-600"}
-        >
-          {state.message}
-        </p>
-      )}
 
-      <div className="flex w-full justify-end">
+      <div className="flex w-full items-center justify-end gap-8">
+        {state.message && (
+          <p
+            role="status"
+            className={state.status === "success" ? "text-green-700" : "text-red-600"}
+          >
+            {state.message}
+          </p>
+        )}
         <button
           type="submit"
           disabled={pending}

@@ -1,4 +1,4 @@
-import { InscricaoConteudo } from "@/app/cursos/[id]/types/inscricao-conteudo";
+import { InscricaoConteudo } from "@/types/inscricao-conteudo";
 
 export async function enviarInscricao(payload: InscricaoConteudo) {
   // TODO: trocar pelo endpoint real quando for definido

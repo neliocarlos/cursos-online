@@ -19,7 +19,7 @@ async function ConteudoCurso({ params }: DetalhesCursoProps) {
   }
 
   return (
-    <div className="flex py-30 h-screen justify-between bg-gray-100">
+    <div className="flex flex-1 py-10 justify-between bg-gray-100">
       <div className="flex flex-col w-full gap-2 font-sans px-20">
         <Link
           href="/cursos"
