@@ -2,8 +2,8 @@
 "use server";
 
 import { enviarInscricao } from "@/services/inscricao";
+import { InscricaoEstado } from "@/types/inscricao-types";
 import { z } from "zod";
-import { InscricaoEstado } from "../../../types/inscricao-estado";
 
 
 const inscricaoSchema = z.object({
