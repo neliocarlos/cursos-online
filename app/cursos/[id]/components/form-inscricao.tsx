@@ -2,9 +2,9 @@
 "use client";
 
 import { useActionState, useState, useEffect } from "react";
-import { InscricaoEstado } from "../../../../types/inscricao-estado";
 import { cadastrarInscricao } from "../actions";
 import { phoneMask } from "@/helpers/phoneMask";
+import { InscricaoEstado } from "@/types/inscricao-types";
 
 const estadoInicial: InscricaoEstado = { status: "idle" };
 

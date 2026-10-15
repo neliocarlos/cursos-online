@@ -1,14 +1,20 @@
-import { InscricaoConteudo } from "@/types/inscricao-conteudo";
+import db from "@/db/database";
+import { InscricaoConteudo, InscricaoRegistro } from "@/types/inscricao-types";
 
 export async function enviarInscricao(payload: InscricaoConteudo) {
-  // TODO: trocar pelo endpoint real quando for definido
-  // const res = await fetch(`${process.env.API_URL}/inscricoes`, {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify(payload),
-  // });
-  // if (!res.ok) throw new Error("Falha ao enviar inscrição");
-  // return res.json();
+  db.prepare(
+    `INSERT INTO Inscricoes (curso_id, nome, email, telefone, cidade)
+     VALUES (@cursoId, @nome, @email, @telefone, @cidade)`,
+  ).run(payload);
+}
 
-  console.log("Inscrição pronta para envio:", payload);
+export function listarInscricoes(): InscricaoRegistro[] {
+  return db
+    .prepare(
+      `SELECT id, curso_id AS cursoId, nome, email, telefone, cidade,
+              criado_em AS criadoEm
+       FROM Inscricoes
+       ORDER BY id DESC`,
+    )
+    .all() as InscricaoRegistro[];
 }
