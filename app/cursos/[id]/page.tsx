@@ -38,9 +38,9 @@ async function ConteudoCurso({ params }: DetalhesCursoProps) {
         </p>
       </div>
 
-      <div className="flex flex-col w-full items-center font-sans sm:px-20 px-5 lg:mt-0 mt-5 lg:pt-0 pt-5 text-slate-900 lg:border-l border-t border-slate-300">
+      <div className="flex flex-col w-full items-center font-sans sm:px-20 px-5 lg:mt-0 mt-5 lg:pt-0 pt-5 text-slate-900 lg:border-l border-l-0 lg:border-t-0 border-t border-slate-300">
         <span className="text-2xl font-semibold text-slate-900">
-          Formulário de Cadastro
+          Formulário de cadastro para interessados
         </span>
         <FormInscricao cursoId={curso.id} />
       </div>
