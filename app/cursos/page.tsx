@@ -1,4 +1,4 @@
-import ListaCursos from "@/components/lista-cursos";
+import ListaCursos from "@/app/cursos/components/lista-cursos";
 import { cursosMock } from "@/mocks/cursos";
 
 export default function Cursos() {

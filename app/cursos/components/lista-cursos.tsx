@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import CardCurso from "@/components/card-curso";
 import { CATEGORIAS } from "@/mocks/categorias";
 import type { cursosMock } from "@/mocks/cursos";
-import Paginacao from "../paginacao";
+import Paginacao from "@/components/paginacao";
 
 type Curso = (typeof cursosMock)[number];
 
