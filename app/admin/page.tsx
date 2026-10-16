@@ -1,4 +1,3 @@
-// app/admin/inscricoes/page.tsx
 import { Suspense } from "react";
 import Link from "next/link";
 import { contarInscricoesPorCurso } from "@/services/inscricao";
@@ -70,6 +69,7 @@ async function ListaCursosAdmin({ searchParams }: Props) {
         paginaAtual={paginaAtual}
         totalPaginas={totalPaginas}
         basePath="/admin"
+        className="pt-6"
       />
     </>
   );

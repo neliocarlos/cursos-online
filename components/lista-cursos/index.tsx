@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import CardCurso from "@/components/card-curso";
 import { CATEGORIAS } from "@/mocks/categorias";
 import type { cursosMock } from "@/mocks/cursos";
+import Paginacao from "../paginacao";
 
 type Curso = (typeof cursosMock)[number];
 
@@ -101,46 +102,12 @@ export default function ListaCursos({ cursos }: { cursos: Curso[] }) {
         <p className="text-slate-700 py-10">Nenhum curso encontrado.</p>
       )}
 
-      {totalPaginas > 1 && (
-        <nav
-          aria-label="Paginação de cursos"
-          className="flex items-center gap-2 py-10"
-        >
-          <button
-            type="button"
-            onClick={() => irParaPagina(paginaAtual - 1)}
-            disabled={paginaAtual === 1}
-            className="bg-blue-950 text-white py-2 px-4 rounded-md hover:bg-blue-900 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
-          >
-            Anterior
-          </button>
-
-          {Array.from({ length: totalPaginas }, (_, i) => i + 1).map((n) => (
-            <button
-              key={n}
-              type="button"
-              onClick={() => irParaPagina(n)}
-              aria-current={n === paginaAtual ? "page" : undefined}
-              className={
-                n === paginaAtual
-                  ? "bg-blue-950 text-white py-2 px-4 rounded-md"
-                  : "bg-white text-slate-900 border border-slate-300 py-2 px-4 rounded-md hover:bg-slate-100 cursor-pointer"
-              }
-            >
-              {n}
-            </button>
-          ))}
-
-          <button
-            type="button"
-            onClick={() => irParaPagina(paginaAtual + 1)}
-            disabled={paginaAtual === totalPaginas}
-            className="bg-blue-950 text-white py-2 px-4 rounded-md hover:bg-blue-900 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
-          >
-            Próxima
-          </button>
-        </nav>
-      )}
+      <Paginacao
+        paginaAtual={paginaAtual}
+        totalPaginas={totalPaginas}
+        onMudarPagina={irParaPagina}
+        className="py-10"
+      />
     </>
   );
 }

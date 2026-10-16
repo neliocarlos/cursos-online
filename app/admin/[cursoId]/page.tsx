@@ -6,6 +6,7 @@ import { cursosMock } from "@/mocks/cursos";
 import { InscricaoRegistro } from "@/types/inscricao-types";
 import { listarInscricoesPorCurso } from "@/services/inscricao";
 import { phoneMask } from "@/helpers/phoneMask";
+import { IoReturnUpBack } from "@react-icons/all-files/io5/IoReturnUpBack";
 
 type Props = { params: Promise<{ cursoId: string }> };
 
@@ -32,9 +33,9 @@ async function TabelaInscricoes({ params }: Props) {
       <div className="flex flex-col gap-1">
         <Link
           href="/admin"
-          className="text-sm text-blue-950 hover:underline w-fit"
+          className="bg-blue-950 flex items-center w-fit text-white py-2 px-4 rounded-md hover:bg-blue-900 cursor-pointer -mt-5 mb-5"
         >
-          ← Voltar para os cursos
+          <IoReturnUpBack className="text-2xl mr-2" /> Voltar
         </Link>
         <h1 className="text-2xl font-semibold text-slate-900">
           {curso.nomeCurso}
