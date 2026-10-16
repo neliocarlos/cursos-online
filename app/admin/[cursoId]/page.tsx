@@ -7,6 +7,7 @@ import { InscricaoRegistro } from "@/types/inscricao-types";
 import { listarInscricoesPorCurso } from "@/services/inscricao";
 import { phoneMask } from "@/helpers/phoneMask";
 import { IoReturnUpBack } from "@react-icons/all-files/io5/IoReturnUpBack";
+import BotaoVoltar from "@/components/botaoVoltar";
 
 type Props = { params: Promise<{ cursoId: string }> };
 
@@ -31,12 +32,7 @@ async function TabelaInscricoes({ params }: Props) {
   return (
     <>
       <div className="flex flex-col gap-1">
-        <Link
-          href="/admin"
-          className="bg-blue-950 flex items-center w-fit text-white py-2 px-4 rounded-md hover:bg-blue-900 cursor-pointer -mt-5 mb-5"
-        >
-          <IoReturnUpBack className="text-2xl mr-2" /> Voltar
-        </Link>
+        <BotaoVoltar href="/admin" className="mb-5" />
         <h1 className="text-2xl font-semibold text-slate-900">
           {curso.nomeCurso}
         </h1>

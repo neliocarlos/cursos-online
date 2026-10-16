@@ -1,9 +1,8 @@
 import { Suspense } from "react";
 import { cursosMock } from "@/mocks/cursos";
 import { notFound } from "next/navigation";
-import { IoReturnUpBack } from "@react-icons/all-files/io5/IoReturnUpBack";
-import Link from "next/link";
 import { FormInscricao } from "./components/form-inscricao";
+import BotaoVoltar from "@/components/botaoVoltar";
 
 type DetalhesCursoProps = {
   params: Promise<{ id: string }>;
@@ -20,12 +19,7 @@ async function ConteudoCurso({ params }: DetalhesCursoProps) {
   return (
     <div className="flex lg:flex-row flex-col flex-1 py-10 lg:justify-between bg-gray-100 w-full">
       <div className="flex flex-col w-full gap-2 font-sans sm:px-20 px-5">
-        <Link
-          href="/cursos"
-          className="bg-blue-950 flex items-center w-fit text-white py-2 px-4 rounded-md hover:bg-blue-900 cursor-pointer -mt-5"
-        >
-          <IoReturnUpBack className="text-2xl mr-2" /> Voltar
-        </Link>
+        <BotaoVoltar href="/cursos" />
         <span className="text-2xl font-semibold text-slate-900 mt-5">
           {curso.nomeCurso}
         </span>
