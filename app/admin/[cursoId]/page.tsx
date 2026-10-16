@@ -7,7 +7,7 @@ import { InscricaoRegistro } from "@/types/inscricao-types";
 import { listarInscricoesPorCurso } from "@/services/inscricao";
 import { phoneMask } from "@/helpers/phoneMask";
 import { IoReturnUpBack } from "@react-icons/all-files/io5/IoReturnUpBack";
-import BotaoVoltar from "@/components/botaoVoltar";
+import BotaoVoltar from "@/components/botao-voltar";
 
 type Props = { params: Promise<{ cursoId: string }> };
 

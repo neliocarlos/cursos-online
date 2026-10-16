@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { cursosMock } from "@/mocks/cursos";
 import { notFound } from "next/navigation";
 import { FormInscricao } from "./components/form-inscricao";
-import BotaoVoltar from "@/components/botaoVoltar";
+import BotaoVoltar from "@/components/botao-voltar";
 
 type DetalhesCursoProps = {
   params: Promise<{ id: string }>;
