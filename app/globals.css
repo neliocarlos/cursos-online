@@ -12,6 +12,7 @@
   --font-mono: var(--font-geist-mono);
 
   --breakpoint-1440p: 1439px;
+  --breakpoint-xs: 425px;
 }
 
 @media (prefers-color-scheme: dark) {

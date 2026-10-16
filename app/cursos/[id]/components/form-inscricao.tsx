@@ -38,7 +38,7 @@ export function FormInscricao({ cursoId }: { cursoId: number }) {
           required
           placeholder="Digite seu nome completo"
           defaultValue={state.values?.nome}
-          className="border border-slate-300 rounded-md p-2"
+          className="border border-slate-300 rounded-md p-2 w-full"
         />
         <FieldError messages={state.errors?.nome} />
       </div>
@@ -53,12 +53,12 @@ export function FormInscricao({ cursoId }: { cursoId: number }) {
           required
           placeholder="Digite seu e-mail"
           defaultValue={state.values?.email}
-          className="border border-slate-300 rounded-md p-2"
+          className="border border-slate-300 rounded-md p-2 w-full"
         />
         <FieldError messages={state.errors?.email} />
       </div>
 
-      <div className="flex gap-2 w-full items-start">
+      <div className="flex xs:flex-row flex-col gap-2 w-full items-start">
         <div className="flex flex-col gap-1 w-full">
           <label htmlFor="telefone" className="text-md text-slate-700">Telefone:</label>
           <input
@@ -72,7 +72,7 @@ export function FormInscricao({ cursoId }: { cursoId: number }) {
             value={phone}
             defaultValue={state.values?.telefone}
             onChange={(e) => setPhone(phoneMask(e.target.value))}
-            className="border border-slate-300 rounded-md p-2"
+            className="border border-slate-300 rounded-md p-2 w-full"
           />
           <FieldError messages={state.errors?.telefone} />
         </div>
@@ -87,7 +87,7 @@ export function FormInscricao({ cursoId }: { cursoId: number }) {
             required
             placeholder="Digite sua cidade"
             defaultValue={state.values?.cidade}
-            className="border border-slate-300 rounded-md p-2"
+            className="border border-slate-300 rounded-md p-2 w-full"
           />
           <FieldError messages={state.errors?.cidade} />
         </div>
