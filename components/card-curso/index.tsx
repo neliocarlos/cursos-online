@@ -10,7 +10,7 @@ export default function CardCurso({ id, nomeCurso, areaCurso, cargaHorario, desc
             </div>
             <div className='flex flex-col h-60 justify-between bg-amber-50 text-slate-900 p-4 rounded-b-xl gap-4 shadow'>
                 <div className='text-md line-clamp-5'>{descricao}</div>
-                <div className='flex justify-between items-center px-6 w-full'>
+                <div className='flex md:flex-row md:gap-0 gap-2 flex-col justify-between items-center px-6 w-full'>
                     <div className='text-md font-semibold'>Carga Horária: {cargaHorario}</div>
                     <Link href={`/cursos/${id}`}  className='bg-blue-950 text-white p-2 rounded-md hover:bg-blue-900 cursor-pointer'>Ver Detalhes</Link>
                 </div>

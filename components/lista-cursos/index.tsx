@@ -46,8 +46,8 @@ export default function ListaCursos({ cursos }: { cursos: Curso[] }) {
 
   return (
     <>
-      <div className="flex w-[80%] gap-4 items-end py-10">
-        <div className="flex flex-col gap-1">
+      <div className="flex md:flex-row flex-col w-[80%] gap-4 py-10">
+        <div className="flex flex-col w-full gap-1">
           <label htmlFor="nome-curso" className="text-slate-900">
             Nome do Curso
           </label>
@@ -59,7 +59,7 @@ export default function ListaCursos({ cursos }: { cursos: Curso[] }) {
               setBusca(e.target.value);
               setPagina(1);
             }}
-            className="border bg-white w-200 border-gray-300 p-2 rounded-md placeholder:text-slate-300 text-slate-700"
+            className="border bg-white w-full border-gray-300 p-2 rounded-md placeholder:text-slate-300 text-slate-700"
             placeholder="Buscar cursos..."
           />
         </div>
@@ -87,7 +87,7 @@ export default function ListaCursos({ cursos }: { cursos: Curso[] }) {
         </div>
       </div>
 
-      <div className="w-[80%] grid grid-cols-3">
+      <div className="sm:w-[80%] w-[90%] grid 2xl:grid-cols-3 md:grid-cols-2 grid-cols-1">
         {cursosDaPagina.map((curso) => (
           <div
             className="col-span-1 flex justify-center items-center p-4"
