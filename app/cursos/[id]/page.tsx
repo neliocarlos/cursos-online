@@ -1,4 +1,3 @@
-// app/cursos/[id]/page.tsx
 import { Suspense } from "react";
 import { cursosMock } from "@/mocks/cursos";
 import { notFound } from "next/navigation";

@@ -1,4 +1,3 @@
-// app/cursos/[id]/form-inscricao.tsx
 "use client";
 
 import { useActionState, useState, useEffect } from "react";

@@ -1,4 +1,3 @@
-// app/cursos/[id]/actions.ts
 "use server";
 
 import { enviarInscricao } from "@/services/inscricao";

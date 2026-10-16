@@ -1,4 +1,3 @@
-// app/admin/inscricoes/page.tsx
 import { Suspense } from "react";
 import Link from "next/link";
 import { cursosMock } from "@/mocks/cursos";
